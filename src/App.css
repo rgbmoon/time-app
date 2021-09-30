@@ -1,31 +1,6 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
+@font-face {
+  font-family: 'Jura';
+  src: url(fonts/Jura-SemiBold.ttf);
 }
 
 @keyframes App-logo-spin {
@@ -35,4 +10,62 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 40s ease infinite;
+	height: 100vh;
+}
+
+.App {
+  height: 100vh;
+  background: url('img/pug_bg_490_2.png')
+              top center / 490px 490px /* position / size */
+              fixed                    /* attachment */
+              padding-box              /* origin */
+              content-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.timeWrapper {
+  width: 70vh;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba( 255, 255, 255, 0.05 );
+  box-shadow: 0 8px 32px 0 rgba( 0, 0, 0, 0.37 );
+  backdrop-filter: blur( 6px );
+  -webkit-backdrop-filter: blur( 6px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  padding: 30px;
+}
+
+.timeItem {
+  font-family: Jura;
+  display: flex;
+  color: #fff;
+  font-size: 70px;
+  line-height: 70px;
+  margin: 0;
+  padding: 0;
 }
