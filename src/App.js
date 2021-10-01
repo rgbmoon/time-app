@@ -28,19 +28,19 @@ function Time() {
   return (
     <div className="App">
         <div className="timeWrapper">
-          <div className="timeItem">
+          <div className="timeItem timeItem animate__animated animate__fadeIn animate__slower">
             {format(currentDate, 'dd.MM.yyyy')}
           </div>
-          <div className="timeItem">
+          <div className="timeItem timeItem animate__animated animate__fadeIn animate__slower">
             {format(currentDate, 'do MMMM', {locale: ru})}
           </div>
-          <div className="timeItem">
+          <div className="timeItem timeItem animate__animated animate__fadeIn animate__slower">
             {format(currentDate, 'HH.mm')}
           </div>
-          <div className="timeItem">
+          <div className="timeItem timeItem animate__animated animate__fadeIn animate__slower">
             {format(currentDate, 's')}
           </div>
-          <div className="timeItem">
+          <div className="timeItem timeItem animate__animated animate__fadeIn animate__slower">
             {currentDate.getMilliseconds()}
           </div>
         </div>
