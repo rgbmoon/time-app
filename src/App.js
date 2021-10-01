@@ -1,41 +1,51 @@
 import './App.css'
-import { format, getDate, parse } from 'date-fns'
+import React, { useState, useEffect } from "react"
+import { format } from 'date-fns'
 import { ru } from 'date-fns/locale'
+import 'animate.css'
 
 
+/* Функциональный вариант. 
+Я честно не понял как работает useState и useEffect
+Использовал эти функции по примеру из интернетов
+НО!!! Оно живое и работает!) */
 
-const dateValues = {
-  date: format(new Date(), 'dd.MM.yyyy'),
-  day: format(new Date(), 'do MMMM', {locale: ru}),
-  hours: format(new Date(), 'HH.mm'),
-  seconds: format(new Date(), 's'),
-}
+function Time() {
 
-const millisec = new Date()
+  const [currentDate, setDate] = useState(new Date())
 
+  function refreshClock() {
+    setDate(new Date());
+  }
 
-const time = () => {
+  useEffect(() => {
+    const timerId = setInterval(refreshClock, 100);
+    return function cleanup() {
+      clearInterval(timerId);
+    };
+  }, []);
+
   return (
     <div className="App">
         <div className="timeWrapper">
           <div className="timeItem">
-            {dateValues.date}
+            {format(currentDate, 'dd.MM.yyyy')}
           </div>
           <div className="timeItem">
-            {dateValues.day}
+            {format(currentDate, 'do MMMM', {locale: ru})}
           </div>
           <div className="timeItem">
-            {dateValues.hours}
+            {format(currentDate, 'HH.mm')}
           </div>
           <div className="timeItem">
-            {dateValues.seconds}
+            {format(currentDate, 's')}
           </div>
           <div className="timeItem">
-            {millisec.getMilliseconds()}
+            {currentDate.getMilliseconds()}
           </div>
         </div>
     </div>
   );
 }
 
-export default time;
+export default Time
